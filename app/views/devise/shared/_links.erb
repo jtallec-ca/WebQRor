@@ -4,7 +4,7 @@
 	</div>
 	<div class="panel-body">
 		<ul>
-		<%- if controller_name != 'sessions' && current_page?(action: 'edit') != true  %>
+		<%- if controller_name != 'sessions' %>
 		  <li><%= link_to "Log in", new_session_path(resource_name) %></li>
 		<% end -%>
 
@@ -30,7 +30,7 @@
 		  <% end -%>
 		<% end -%>
 
-		<%- if controller_name != 'sessions' && current_page?(action: 'edit') == true  %>
+		<%- if controller_name == 'registration' && current_page?(action: 'edit') == true %>
 			<li><%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete%></li>
 		<% end %>
 		</ul>

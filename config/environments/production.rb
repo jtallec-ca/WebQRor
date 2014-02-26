@@ -79,5 +79,19 @@ WebQ::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   #Mailer config
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_deliveries = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.zoho.com",
+    port: 465,
+    domain: ENV["EMAIL_DOMAIN"],
+    user_name: ENV["EMAIL_USERNAME"],
+    password: ENV["EMAIL_PASSWORD"],
+    authentication: :plain,
+    enable_starttls_auto: true,
+    tls: true,
+    ssl: true
+  }
   config.action_mailer.default_url_options = { :host => 'http://webqror.jtallec.ca' }
 end

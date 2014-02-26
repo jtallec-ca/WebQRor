@@ -20,12 +20,37 @@
         <% if not user_signed_in? %>
         <li><%= link_to "Home", root_path %></li>
         <% end %>
-        <li><%= link_to "About", about_path %></li>
         <% if user_signed_in? %>
-          <li><%= link_to "My Account", edit_user_registration_path %></li>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <li class="dropdown">
+            <%= link_to '#', class: 'dropdown-toggle', data: { toggle: "dropdown"} do %>
+              <span class="glyphicon glyphicon-user"></span>&nbsp;<%= current_user.email %>
+              <b class="caret"></b>
+            <% end %>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to edit_user_registration_path do %>
+                  <span class="glyphicon glyphicon-cog"></span>&nbsp;Account Settings
+                <% end %>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <span class="glyphicon glyphicon-log-out"></span>&nbsp;Log out
+                <% end %>
+              </li>
+            </ul>
+          </li>
+<!--           <li>
+  <%= link_to destroy_user_session_path, method: :delete do %>
+    <span class="glyphicon glyphicon-log-out"></span>&nbsp;Log out
+  <% end %>
+</li> -->
         <% else %>
-          <li><%= link_to "Log in", new_user_session_path %></li>
+          <li>
+            <%= link_to new_user_session_path do %>
+              <span class="glyphicon glyphicon-log-in"></span>&nbsp;Log in
+            <% end %>
+          </li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->

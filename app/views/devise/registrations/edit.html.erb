@@ -13,7 +13,8 @@
         Currently waiting confirmation for:<%= resource.unconfirmed_email %>
       </div>
     <% end %>
-
+    <%= f.text_field :first_name, label: "First Name", placeholder: "First Name", required: true %>
+    <%= f.text_field :last_name, label: "Last Name", placeholder: "Last Name", required: true %>
     <%= f.password_field :current_password, placeholder: "Current Password",  required: true, help: "(we need your current password to confirm your changes)" %>
     <%= f.password_field :password, placeholder: "New Password" %>
     <%= f.password_field :password_confirmation, label: "Confirm New Password", placeholder: "Password" %>

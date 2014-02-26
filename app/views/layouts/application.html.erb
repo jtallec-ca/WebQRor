@@ -8,12 +8,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
- <%= render 'layouts/header' %>
-
-<!--<%= link_to "Home", root_path %>
-<%= link_to "About", about_path %>-->
-
-<%= yield %>
-
+	<div id="wrap">
+		<%= render 'layouts/header' %>
+		<div class="container-fluid">
+			<div class="row">
+					<% if content_for?(:fixed_content) %>
+						<!-- Homepage Area -->
+						<%= yield :fixed_content %>
+					<% else %>
+					<div class="col-sm-3 col-md-2">
+						<!-- Sidebar Area -->
+						<%= render 'layouts/sidebar' %>
+					</div>
+					<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+						<!-- Main Content Area -->
+						<%= render 'layouts/messages' %>
+						<%= yield %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<%= render 'layouts/footer' %>
 </body>
 </html>

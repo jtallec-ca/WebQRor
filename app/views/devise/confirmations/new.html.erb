@@ -1,0 +1,15 @@
+<div class="page-header">
+	<h2>Resend confirmation instructions</h2>
+</div>
+<div class="col-sm-9">
+	<%= bootstrap_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-9", method: :post) do |f| %>
+	  <%= f.email_field :email, :autofocus => true, placeholder: "Email",  required: true %>
+	  <%= f.form_group do %>
+	  	<%= f.submit "Resend confirmation instructions", class: "btn btn-primary" %>
+	  <% end %>
+	<% end %>
+</div>
+<div class="col-sm-3">
+	<%= render "devise/shared/links" %>
+</div>
+

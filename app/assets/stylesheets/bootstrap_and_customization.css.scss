@@ -37,9 +37,12 @@ $jumbotron-bg:								white;
 
 .page-header {
 	background-color: white;
-	padding-left: 60px;
-	padding-right: 60px;
+	/* padding-left: 60px;
+	padding-right: 60px; */
+	margin-top: 5px;
 	padding-top: 9px;
+	background-color: inherit;
+	border-color: #cccccc;
 }
 
 .titleWebQ {
@@ -78,6 +81,10 @@ $jumbotron-bg:								white;
 	background-color: white;
 }
 
+hr {
+	border-color: #cccccc;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 
@@ -97,6 +104,11 @@ body {
   padding: 0 0 30px;
 }
 
+#navcol {
+  min-height: 100%;
+  height: auto;
+ }
+
 /* Set the fixed height of the footer here */
 #footer {
   height: 30px;
@@ -111,4 +123,18 @@ body {
 .required:after {
 	content: " *";
 	color: red;
+}
+
+.content {
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.show-grid [class^=col-] {
+padding-top: 10px;
+padding-bottom: 10px;
+background-color: #eee;
+background-color: rgba(86,61,124,.15);
+border: 1px solid #ddd;
+border: 1px solid rgba(86,61,124,.2);
 }

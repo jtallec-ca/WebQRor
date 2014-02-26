@@ -1,3 +1,30 @@
-<h1>Welcome to WebQ</h1>
-<p>Log here</p>
-<p>More information <%= link_to "here", "about" %>
+<% content_for :fixed_content do %>
+	<div class="col-md-8 col-md-offset-2">
+		<%= render "layouts/messages" %>
+	</div>
+
+	<div class="col-md-8 col-md-offset-2 center">
+		<h1>
+			<font  class="titleWebQ PrimColorWebQ">W</font><font class="titleWebQ AltColorWebQ">?</font>
+		</h1>
+		<h4>Web Questionnaire</h4>
+
+		<hr>
+		<div class="text-center">
+			Welcome to Web Questionnaire, a tool for designing and distributing questionnaires.<br>
+			Web Questionnaire allows the user to develop new questionnaires, manage multiple projects, quickly edit previously created questionnaires, and distribute them to respondents using a variety of methods. 
+			<br>Responses are collected and available to the designer from one easy to manage location.
+		</div>
+		<hr>
+
+		<% if user_signed_in? %>
+		  	# do something
+		<% else %>
+			<p>
+			  <%= link_to "Log in", new_user_session_path, class: "btn btn-default btn-lg" %>
+			  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+			  <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+			</p>
+		<% end %>  
+	</div>
+<% end %>

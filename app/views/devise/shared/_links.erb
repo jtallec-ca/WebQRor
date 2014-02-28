@@ -6,7 +6,9 @@
 		<ul>
 		<%- if controller_name != 'sessions' %>
 			<% if not user_signed_in? %>
-		  	<li><%= link_to "Log in", new_session_path(resource_name) %></li>
+		  	<li><%= link_to "Sign in", new_session_path(resource_name) %></li>
+		  <% else %>
+		  	<li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
 		  <% end %>
 		<% end -%>
 
@@ -17,15 +19,19 @@
 		<% end -%>
 
 		<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-		  <li><%= link_to "Forgot your password?", new_password_path(resource_name) %></li>
+		  <li><%= link_to "Forgot your password?", "#passwords_new", data: {toggle: "modal", target: "#passwords_new"} %></li>
 		<% end -%>
 
 		<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-		  <li><%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %></li>
+			<%- if not (controller_name == 'registrations' && current_page?(action: 'edit') == true) %>
+		  	<li><%= link_to "Didn't receive confirmation instructions?", "#confirmations_new", data: {toggle: "modal", target: "#confirmations_new"} %></li>
+		  <% end %>
 		<% end -%>
 
 		<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-		  <li><%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %></li>
+		  <%- if not (controller_name == 'registrations' && current_page?(action: 'edit') == true) %>
+		  	<li><%= link_to "Didn't receive unlock instructions?", "#unlocks_new", data: {toggle: "modal", target: "#unlockss_new"} %></li>
+		  <% end %>
 		<% end -%>
 
 		<%- if devise_mapping.omniauthable? %>
@@ -34,38 +40,54 @@
 		  <% end -%>
 		<% end -%>
 
-		<%- if controller_name == 'registration' && current_page?(action: 'edit') == true %>
+		<%- if controller_name == 'registrations' && current_page?(action: 'edit') == true %>
 			<li><%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete%></li>
 		<% end %>
 		</ul>
 	</div>
 </div>
 
-<!-- =begin
-<%- if controller_name != 'sessions' %>
-  <%= link_to "Sign in", new_session_path(resource_name) %><br />
-<% end -%>
+<!-- Modal for New Passwords -->
+<div class="modal fade" id="passwords_new" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+  		<div class="modal-header">
+    		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    		<h4 class="modal-title" id="myModalLabel">Forgot Your Password</h4>
+  		</div>
+		  <div class="modal-body">
+				<%= render 'devise/passwords/new' %>
+		  </div>
+    </div>
+  </div>
+</div>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
-<% end -%>
+<!-- Modal for New Confirmations -->
+<div class="modal fade" id="confirmations_new" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+  		<div class="modal-header">
+    		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    		<h4 class="modal-title" id="myModalLabel">Resend confirmation instructions</h4>
+  		</div>
+		  <div class="modal-body">
+				<%= render 'devise/confirmations/new' %>
+		  </div>
+    </div>
+  </div>
+</div>
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-<% end -%>
-
-<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
-<% end -%>
-
-<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
-<% end -%>
-
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
-  <% end -%>
-<% end -%>
-=end
- -->
+<!-- Modal for New Unlocks -->
+<div class="modal fade" id="unlocks_new" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+  		<div class="modal-header">
+    		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    		<h4 class="modal-title" id="myModalLabel">Resend unlock instructions</h4>
+  		</div>
+		  <div class="modal-body">
+				<%= render 'devise/unlocks/new' %>
+		  </div>
+    </div>
+  </div>
+</div>

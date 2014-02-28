@@ -32,7 +32,15 @@ $jumbotron-bg:								white;
 .navbar-brand {
  	font-weight:	normal;
 	font-family:	'Montserrat Alternates';
+}
 
+.navbar {
+	margin-bottom: 10px;
+}
+
+.breadcrumb {
+	margin-bottom: 0;
+	padding: 0 5px;
 }
 
 .page-header {

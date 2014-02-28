@@ -35,7 +35,7 @@
               <li class="divider"></li>
               <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>
-                  <span class="glyphicon glyphicon-log-out"></span>&nbsp;Log out
+                  <span class="glyphicon glyphicon-log-out"></span>&nbsp;Sign out
                 <% end %>
               </li>
             </ul>
@@ -48,7 +48,7 @@
         <% else %>
           <li>
             <%= link_to new_user_session_path do %>
-              <span class="glyphicon glyphicon-log-in"></span>&nbsp;Log in
+              <span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign in
             <% end %>
           </li>
         <% end %>

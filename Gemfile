@@ -13,6 +13,7 @@ gem 'bootstrap-sass'
 gem 'figaro'
 gem 'bootstrap_form', :git => 'https://github.com/bootstrap-ruby/rails-bootstrap-forms.git', :branch => "master"
 gem 'devise'
+gem 'breadcrumbs_on_rails'
 # gem 'jquery-turbolinks'
 
 group :doc do

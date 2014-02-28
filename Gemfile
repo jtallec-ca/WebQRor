@@ -8,13 +8,15 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 # gem 'turbolinks'
+# gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass'
 gem 'figaro'
 gem 'bootstrap_form', :git => 'https://github.com/bootstrap-ruby/rails-bootstrap-forms.git', :branch => "master"
 gem 'devise'
+gem 'cancan'
 gem 'breadcrumbs_on_rails'
-# gem 'jquery-turbolinks'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

@@ -15,6 +15,7 @@ gem 'figaro'
 gem 'bootstrap_form', :git => 'https://github.com/bootstrap-ruby/rails-bootstrap-forms.git', :branch => "master"
 gem 'devise'
 gem 'cancan'
+gem 'rolify'
 gem 'breadcrumbs_on_rails'
 
 
@@ -29,6 +30,9 @@ end
 
 group :development do
 			gem 'mysql2'
+			gem 'better_errors'
+			gem 'binding_of_caller'
+			gem 'debugger'
 end
 
 group :production do

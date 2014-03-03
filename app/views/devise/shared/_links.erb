@@ -30,7 +30,7 @@
 
 		<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
 		  <%- if not (controller_name == 'registrations' && current_page?(action: 'edit') == true) %>
-		  	<li><%= link_to "Didn't receive unlock instructions?", "#unlocks_new", data: {toggle: "modal", target: "#unlockss_new"} %></li>
+		  	<li><%= link_to "Didn't receive unlock instructions?", "#unlocks_new", data: {toggle: "modal", target: "#unlocks_new"} %></li>
 		  <% end %>
 		<% end -%>
 

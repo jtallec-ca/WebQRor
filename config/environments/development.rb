@@ -43,4 +43,7 @@ WebQ::Application.configure do
     ssl: true
   }
   config.action_mailer.default_url_options = { :host => '10.10.10.101:3000' }
+  
 end
+
+BetterErrors::Middleware.allow_ip! ENV['TRUSTED_IP'] if ENV['TRUSTED_IP']

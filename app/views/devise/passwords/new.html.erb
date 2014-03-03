@@ -2,12 +2,7 @@
 	<h2>Forgot your password?</h2>
 </div>
 <div class="col-sm-9">
-	<%= bootstrap_form_for(resource, :as => resource_name, :url => password_path(resource_name), layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-9", method: :post) do |f| %>
-	  <%= f.password_field :email, placeholder: "Email", required: true %>
-	  <%= f.form_group do %>
-	  	<%= f.submit "Send me reset password instructions", class: "btn btn-primary" %>
-	  <% end %>
-	<% end %>
+	<%= render "devise/passwords/_new" %>
 </div>
 <div class="col-sm-3">
 	<%= render "devise/shared/links" %>

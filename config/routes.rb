@@ -1,8 +1,15 @@
 WebQ::Application.routes.draw do
+  
   devise_for :users, :controllers => { :registrations => 'registrations' }
   #get "pages/home"
   root "pages#home"
   get "about" => "pages#about"
+
+  namespace :admin do
+    get "dashboard/index"
+    #get '', to: 'dashboard#index', as: '/'
+    get '', to: redirect('admin/dashboard/index')
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

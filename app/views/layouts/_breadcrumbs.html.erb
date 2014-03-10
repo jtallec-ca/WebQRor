@@ -1,7 +1,7 @@
 <% if user_signed_in? && current_page?('/') != true%>
-<!-- 	<div class="container col-sm-12"> -->
-		<ol class="breadcrumb nobg">
+		<i><ol class="breadcrumb nobg">
+			You are here:&nbsp;&nbsp; 
 	    <%= render_breadcrumbs :tag => :li, :separator => "" %>
 		</ol>
-<!-- 	</div> -->
+	</i>
 <% end %>

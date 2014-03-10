@@ -1,0 +1,23 @@
+<% if not user_signed_in? %>
+    <div></div>
+<% else %>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Administration</h3>
+    </div>
+    <div class="panel-body">
+            <div  class="bg-white sidebar-offcanvas navbar" role="navigation">
+                <ul class="nav">
+                    <li><%= link_to "Dashboard", admin_dashboard_index_path %>
+                    </li>
+                    <li><%= link_to "Manage Users", admin_path %>
+                    </li>
+                    <li><a href="#">Manage Surveys</a>
+                    </li>
+                    <li><a href="#">Help</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<% end %>

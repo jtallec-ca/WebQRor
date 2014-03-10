@@ -13,6 +13,9 @@ $navbar-default-bg:						white;
 $navbar-default-brand-color:	#133365;
 $brand-primary:								#5d7daf;
 $jumbotron-bg:								white;
+$border-radius-base:0;
+$border-radius-large: 2px;
+
 
 
 @import 'bootstrap';
@@ -39,18 +42,26 @@ $jumbotron-bg:								white;
 }
 
 .breadcrumb {
-	margin-bottom: 0;
-	padding: 0 5px;
+	margin-bottom: 0px;
+	padding: 0px 5px 10px 5px;
+	border-bottom: 1px solid #cccccc;
 }
 
 .page-header {
 	background-color: white;
 	/* padding-left: 60px;
 	padding-right: 60px; */
-	margin-top: 5px;
+	margin-top: 0px;
 	padding-top: 9px;
 	background-color: inherit;
 	border-color: #cccccc;
+	border-bottom: 1px solid #cccccc;
+	/* border-top: 1px solid #cccccc; */
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 10px;
+	margin-bottom: 10px
 }
 
 .titleWebQ {
@@ -66,11 +77,11 @@ $jumbotron-bg:								white;
 	color:	#133365;
 }
 
-* {
+/* * {
   -webkit-border-radius: 0 !important;
      -moz-border-radius: 0 !important;
           border-radius: 0 !important;
-}
+} */
 
 .bl {
 	border-left: 1px solid #eee;
@@ -129,6 +140,10 @@ body {
 	background: none;
 }
 
+.bg-white {
+	background-color: white;
+}
+
 .required:after {
 	content: " *";
 	color: red;
@@ -147,3 +162,36 @@ background-color: rgba(86,61,124,.15);
 border: 1px solid #ddd;
 border: 1px solid rgba(86,61,124,.2);
 }
+
+#sidebar {
+  height: 100%;
+/*   padding-left: 0;
+  padding-right: 0; */
+  padding-top: 0px;
+  margin-top: 30px;
+}
+#sidebar .nav {
+  width: 100%;
+}
+#sidebar li {
+  border:0 #f2f2f2 solid;
+  border-bottom-width:1px;
+}
+
+#sidebar li:last-child {
+  border-bottom-width:0px;
+}
+
+#sidebar a:hover, a:active {
+	background: #5d7daf;
+	border: #5070a2;
+	color: white;
+}
+
+/* #headerbar {
+	margin-bottom: 0;
+} */
+
+/* background hover #5d7daf
+border #5070a2
+color white */

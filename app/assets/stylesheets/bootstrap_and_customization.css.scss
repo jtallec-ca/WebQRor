@@ -100,8 +100,24 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: white;
 }
 
+.tab-content {
+	padding: 10px;
+}
+
 hr {
 	border-color: #cccccc;
+}
+
+.nav-tabs > li.active > a {
+	background-color: white;
+	color: #5d7daf
+}
+
+.tab-content {
+	background-color: white;
+	border-bottom: 1px solid #dddddd;
+	border-left: 1px solid #dddddd;
+	border-right: 1px solid #dddddd;
 }
 
 /* Sticky footer styles
@@ -146,6 +162,10 @@ body {
 
 .required:after {
 	content: " *";
+	color: red;
+}
+
+.red {
 	color: red;
 }
 

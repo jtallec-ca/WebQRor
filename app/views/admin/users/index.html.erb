@@ -1,0 +1,76 @@
+<div class="page-header">
+	<h2>Manage Users</h2>
+</div>
+<div class="col-sm-9">
+
+	<!-- Tab navigation -->
+	<ul class="nav nav-tabs">
+	<li class="active"><a href="#List" data-toggle="tab"><span class="glyphicon glyphicon-list"></span>&nbsp;List Users</a></li>
+	  <li><a href="#Create" data-toggle="tab"><span class="glyphicon glyphicon-plus"></span>&nbsp;Create Users</a></li>
+	  <li><a href="#Import" data-toggle="tab"><span class="glyphicon glyphicon-import"></span>&nbsp;Import Users</a></li>
+	</ul>
+
+	<!-- Tab Content -->
+	<div class="tab-content">
+	  <div class="tab-pane fade in active" id="List">
+	  	<p>Current list of users in the applicaiton</p>
+	  	<div class="table-responsive">
+		  	<table class="table table-hover table-condensed">
+		  		<thead>
+		  			<tr>
+		  				<th>Id</th>
+		  				<th>First Name</th>
+		  				<th>Last Name</th>
+		  				<th>Email</th>
+		  				<th>&nbsp;</th>
+		  				<th>&nbsp;</th>
+		  		</thead>
+				  <tbody>
+				    <% @users.each do |user| %>
+				      <tr>
+				        <td><%= user.id %></td>
+				        <td><%= user.first_name %></td>
+				        <td><%= user.last_name %></td>
+				        <td><%= user.email %></td>
+				        <td>  
+				        	<a data-toggle="modal" data-target="#registrations_edit" data-remote="<%= edit_admin_user_path(user) %> #registrations_edit"><span class="glyphicon glyphicon-edit"></span></a>
+				        </td>
+				        <td>
+				          <%= link_to admin_users_path(user),class: "red", :data => { :confirm => "Are you sure?" }, :method => :delete do %>
+				          	<span class="glyphicon glyphicon-remove"></span>
+				          <% end %>
+				        </td>
+				      </tr>
+
+							<!-- Modal for Registrations Edit -->
+							<div class="modal fade" id="registrations_edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							  <div class="modal-dialog modal-lg">
+							    <div class="modal-content">
+							  		<div class="modal-header">
+							    		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							    		<h4 class="modal-title" id="myModalLabel">Edit User Settings</h4>
+							  		</div>
+									  <div class="modal-body">
+											
+									  </div>
+							    </div>
+							  </div>
+							</div>
+
+				    <% end %>
+				  </tbody>
+				</table>
+			</div>
+	  </div>
+	  <div class="tab-pane fade" id="Create">...</div>
+	  <div class="tab-pane fade" id="Import">...</div>
+	</div>
+
+</div>
+
+<div class="col-sm-3">
+
+</div>
+
+
+

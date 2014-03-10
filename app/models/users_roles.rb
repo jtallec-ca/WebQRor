@@ -5,10 +5,11 @@ class UsersRoles < ActiveRecord::Base
         res_id   = obj.id rescue nil
         role_row = subject.roles.where(name: role_symbol.to_s, resource_type: res_name , resource_id: res_id).first
         if  role_row.nil?
-            raise "cannot delete nonexisting role on subject"
+            #raise "cannot delete nonexisting role on subject"
+        else
+            role_id = role_row.id
+            self.delete_all(user_id: subject.id,role_id: role_id)
         end
-        role_id = role_row.id
-        self.delete_all(user_id: subject.id,role_id: role_id)
     end
 
     private_class_method :new

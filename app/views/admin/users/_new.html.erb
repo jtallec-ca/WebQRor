@@ -1,0 +1,26 @@
+<div>
+	<% @user = User.new %>
+	<%= bootstrap_form_for(@user, :as => "user", :url => admin_users_path(@user), layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-9") do |f| %>
+		<ul>
+  		<li><h3><small>Email details</small></h3></li>
+		  <%= f.email_field :email, :autofocus => true, placeholder: "Email",  required: true  %>
+		  <li><h3><small>Name details</small></h3></li>
+		  <%= f.text_field :first_name, label: "First Name", placeholder: "First Name", required: true %>
+	    <%= f.text_field :last_name, label: "Last Name", placeholder: "Last Name", required: true %>
+	    <li><h3><small>Password details</small></h3></li>
+		  <%= f.password_field :password, placeholder: "Password",  required: true %>
+		  <%= f.password_field :password_confirmation, label: "Confirm Password", placeholder: "Password",  required: true %>
+		  <li><h3><small>Role details</small></h3></li>
+        <%= f.form_group :roles, label: { text: "Roles" } do %>
+          <% Role.all.each do |role| %>
+            <%= f.check_box :roles, id:"user_role_ids_#{role.id}", name: "user[role_ids][#{role.id}]", checked: @user.role_ids.include?(role.id) do %>
+               <%= role.name.squish.titleize %>
+            <% end %>
+          <% end %>
+        <% end %>
+		  <%= f.form_group do %>
+		  	<hr>
+		  	<%= f.submit "Create user", class: "btn btn-primary" %>
+		  <% end %>
+	<% end %>
+</div>

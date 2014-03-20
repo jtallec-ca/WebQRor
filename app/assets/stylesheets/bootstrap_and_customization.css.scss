@@ -16,9 +16,24 @@ $jumbotron-bg:								white;
 $border-radius-base:0;
 $border-radius-large: 2px;
 
+//----Breadcrumbs
+//$breadcrumb-padding-vertical: 10px;
+//$breadcrumb-padding-horizontal: 0px; 
+$breadcrumb-bg: inherit; //background color
+$breadcrumb-color: #ccc; //text color 
+//$breadcrumb-active-color: $gray-light; //Text color of current page in the breadcrumb
+$breadcrumb-separator: "/"; //Textual separator for between breadcrumb elements
 
 
 @import 'bootstrap';
+
+/* Breadcrumbs */
+.breadcrumb {
+	margin-bottom: 0px;
+	padding: 0px 0px 10px 0px;
+/* 	border-bottom: 1px solid inherit; */
+	font-size: 11px;
+}
 
 .center {
  	text-align: center;
@@ -41,11 +56,7 @@ $border-radius-large: 2px;
 	margin-bottom: 10px;
 }
 
-.breadcrumb {
-	margin-bottom: 0px;
-	padding: 0px 5px 10px 5px;
-	border-bottom: 1px solid #cccccc;
-}
+
 
 .page-header {
 	background-color: white;
@@ -56,7 +67,7 @@ $border-radius-large: 2px;
 	background-color: inherit;
 	border-color: #cccccc;
 	border-bottom: 1px solid #cccccc;
-	/* border-top: 1px solid #cccccc; */
+	border-top: 1px solid #cccccc;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -105,7 +116,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 hr {
-	border-color: #cccccc;
+	border-top: 1px solid #cccccc;
 }
 
 .nav-tabs > li.active > a {
@@ -188,7 +199,7 @@ border: 1px solid rgba(86,61,124,.2);
 /*   padding-left: 0;
   padding-right: 0; */
   padding-top: 0px;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 #sidebar .nav {
   width: 100%;

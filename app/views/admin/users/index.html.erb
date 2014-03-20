@@ -13,7 +13,7 @@
 	<!-- Tab Content -->
 	<div class="tab-content">
 	  <div class="tab-pane fade in active" id="List">
-	  	<p>Current list of users in the applicaiton</p>
+	  	<br/>
 	  	<div class="table-responsive">
 		  	<table class="table table-hover table-condensed">
 		  		<thead>
@@ -22,7 +22,7 @@
 		  				<th>First Name</th>
 		  				<th>Last Name</th>
 		  				<th>Email</th>
-		  				<th>&nbsp;</th>
+		  				<th>Confirmed?</th>
 		  				<th>&nbsp;</th>
 		  		</thead>
 				  <tbody>
@@ -32,11 +32,15 @@
 				        <td><%= user.first_name %></td>
 				        <td><%= user.last_name %></td>
 				        <td><%= user.email %></td>
-				        <td>  
-				        	<a data-toggle="modal" data-target="#registrations_edit" data-remote="<%= edit_admin_user_path(user) %> #registrations_edit"><span class="glyphicon glyphicon-edit"></span></a>
+				        <td><% if user.confirmed_at.blank? || user.pending_reconfirmation? %>
+											<span class="glyphicon glyphicon-remove"></span>
+										<% else %>
+											<span class="glyphicon glyphicon-ok"></span>
+										<% end %>
 				        </td>
-				        <td>
-				          <%= link_to admin_users_path(user),class: "red", :data => { :confirm => "Are you sure?" }, :method => :delete do %>
+				        <td>  
+				        	<a data-toggle="modal" data-target="#registrations_edit" data-remote="<%= edit_admin_user_path(user) %> #registrations_edit"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;
+				          <%= link_to admin_user_path(user), class: "red", :data => { :confirm => "Are you sure?" }, :method => :delete do %>
 				          	<span class="glyphicon glyphicon-remove"></span>
 				          <% end %>
 				        </td>
@@ -62,8 +66,10 @@
 				</table>
 			</div>
 	  </div>
-	  <div class="tab-pane fade" id="Create">...</div>
-	  <div class="tab-pane fade" id="Import">...</div>
+  <div class="tab-pane fade" id="Create">
+		<%= render "admin/users/new" %>
+	</div>
+	<div class="tab-pane fade" id="Import">...</div>
 	</div>
 
 </div>

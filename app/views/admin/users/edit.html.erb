@@ -9,9 +9,9 @@
         <ul>
         <li><h3><small>Email details</small></h3></li>
         <%= f.email_field :email, :autofocus => true, placeholder: "Email",  required: true  %>
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <% if devise_mapping.confirmable? && @user.pending_reconfirmation? %>
           <div>
-            Currently waiting confirmation for:<%= resource.unconfirmed_email %>
+            Currently waiting confirmation for:<%= @user.unconfirmed_email %>
           </div>
         <% end %>
         <li><h3><small>Name details</small></h3></li>
@@ -26,6 +26,7 @@
           <% end %>
         <% end %>
         <%= f.form_group do %>
+          <hr>
           <%= f.submit "Update", class: "btn btn-primary" %>
         <% end %>
       </ul>

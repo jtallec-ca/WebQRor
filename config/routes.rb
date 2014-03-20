@@ -1,6 +1,6 @@
 WebQ::Application.routes.draw do
   
-  devise_for :users, :controllers => { :registrations => 'registrations' }
+  devise_for :users, :controllers => { :registrations => 'registrations', :sessions => 'sessions' }
   
   #get "pages/home"
   root "pages#home"
